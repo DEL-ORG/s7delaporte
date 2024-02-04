@@ -13,7 +13,7 @@ services:
 
   # MongoDB service
   database:
-    image: mongo:latest  # Use the latest official MongoDB image from Docker Hub
+    image: mongo: v1.0.0.  # Use the latest official MongoDB image from Docker Hub
     ports:
       - "27017:27017"  # Map host machine's port 27017 to container's port 27017
     volumes:
