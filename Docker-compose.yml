@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  # Web application service
+  web-app:
+    image: node:14  # Use the official Node.js 14 image from Docker Hub
+    ports:
+      - "8080:8080"  # Map host machine's port 8080 to container's port 8080
+    volumes:
+      - ./app:/app  # Mount the local ./app directory to /app in the container
+    environment:
+      - NODE_ENV=production  # Set the Node.js environment to production
+
+  # MongoDB service
+  database:
+    image: mongo:latest  # Use the latest official MongoDB image from Docker Hub
+    ports:
+      - "27017:27017"  # Map host machine's port 27017 to container's port 27017
+    volumes:
+      - ./data:/data/db  # Mount the local ./data directory to /data/db in the container
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin  # Set the MongoDB root username
+      - MONGO_INITDB_ROOT_PASSWORD=admin123  # Set the MongoDB root password
+
